@@ -1,14 +1,14 @@
 [
 {
-  "modid": "cloudmc",
-  "name": "Cloud Client",
+  "modid": "frostclient",
+  "name": "Frost Client",
   "description": "A 1.8.9 Minecraft PVP Client",
   "version": "1.4.1",
   "mcversion": "1.8.9",
-  "url": "https://cloudmc.dev/",
-  "updateUrl": "https://github.com/cloudclientdev",
-  "authorList": ["DupliCAT"],
-  "credits": "Moulberry, superblaubeere27, LaVache",
+  "url": "https://modrinth.com/mod/frost",
+  "updateUrl": "https://github.com/QuiteFrosty/FrostClient",
+  "authorList": ["QuiteFrosty"],
+  "credits": "Forked from CloudClient by DupliCAT. Uses code from Moulberry, superblaubeere27, LaVache-FR.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

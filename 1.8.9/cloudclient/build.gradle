@@ -24,8 +24,8 @@ compileJava {
 }
 
 version = "1.0"
-group= "dev.cloudmc"
-archivesBaseName = "cloudmc"
+group = "dev.frostclient"
+archivesBaseName = "frostclient"
 
 minecraft {
     version = "1.8.9-11.15.1.2318-1.8.9"
@@ -35,7 +35,7 @@ minecraft {
 
 mixin {
     defaultObfuscationEnv = "searge"
-    add sourceSets.main, "mixins.cloudmc.refmap.json"
+    add sourceSets.main, "mixins.frostclient.refmap.json"
 }
 
 configurations {
@@ -75,7 +75,7 @@ jar {
     from(configurations.embed.collect { it.isDirectory() ? it : zipTree(it) })
 
     manifest.attributes (
-            "MixinConfigs": "mixins.cloudmc.json",
+            "MixinConfigs": "mixins.frostclient.json",
             "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
             'FMLCorePluginContainsFMLMod': true,
             "ForceLoadAsMod": true
