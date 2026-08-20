@@ -1,188 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Coming Soon...</title>
-  <style>
-    body {
-      background-color: #222;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    h1 {
-      font-size: 64px;
-      margin-bottom: 10px;
-      letter-spacing: 4px;
-    }
-    
-    p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      letter-spacing: 2px;
-      max-width: 600px;
-      text-align: center;
-    }
-    
-    .countdown {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 40px;
-      font-size: 36px;
-      text-shadow: none;
-    }
-    
-    .countdown span {
-      display: inline-block;
-      background-color: #333;
-      color: #fff;
-      font-weight: bold;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border-radius: 5px;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-    
-    .countdown span:last-child {
-      margin-right: 0;
-    }
-    
-    .countdown-label {
-      font-size: 14px;
-      margin-top: 5px;
-    }
-    
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .social-icons a {
-      display: inline-block;
-      margin: 0 10px;
-      color: #fff;
-      font-size: 24px;
-      text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-    }
-    
-    .social-icons a:hover {
-      opacity: 1;
-    }
-    
-    .background-img {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    
-    .snowflake {
-      position: absolute;
-      top: -10px;
-      width: 20px;
-      height: 20px;
-      background-color: #fff;
-      border-radius: 50%;
-      animation: snowfall linear infinite;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    
-    @keyframes snowfall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrostClient — Open-Source Minecraft PvP Client</title>
+  <meta name="description" content="FrostClient is a free, open-source, zero-telemetry Minecraft PvP client for Forge. A transparent alternative to Lunar and Badlion.">
+  <link rel="icon" href="/screenshots/FrostLogoV2.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Coming Soon...</h1>
-    <p>Exciting things are coming soon. Stay tuned for an unforgettable experience!</p>
-    
-    <div class="countdown">
-      <span id="days">0</span>
-      <span class="countdown-label">Days</span>
-      <span id="hours">0</span>
-      <span class="countdown-label">Hours</span>
-      <span id="minutes">0</span>
-      <span class="countdown-label">Minutes</span>
-      <span id="seconds">0</span>
-      <span class="countdown-label">Seconds</span>
+
+  <div class="snow-layer" id="snowLayer" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="#top" class="brand">
+        <img src="/screenshots/FrostLogoV2.png" alt="FrostClient logo" class="brand-logo">
+        <span>Frost<span class="accent">Client</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#versions">Versions</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="https://github.com/QuiteFrosty/FrostClient" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://modrinth.com/mod/frost" target="_blank" rel="noopener" class="nav-cta">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-glow"></div>
+      <img src="/screenshots/FrostLogoV2.png" alt="FrostClient logo" class="hero-logo">
+      <h1>Feel the <span class="accent">Frost</span>.</h1>
+      <p class="hero-subtitle">
+        A powerful, open-source Minecraft PvP client built for Forge. Zero bloat, zero telemetry —
+        every line is inspectable, forkable, and community-driven.
+      </p>
+      <div class="hero-actions">
+        <a href="https://modrinth.com/mod/frost" target="_blank" rel="noopener" class="btn btn-primary">Download on Modrinth</a>
+        <a href="https://github.com/QuiteFrosty/FrostClient" target="_blank" rel="noopener" class="btn btn-secondary">View on GitHub</a>
+      </div>
+      <p class="hero-note">Currently available for Minecraft 1.8.9</p>
+    </section>
+
+    <section class="strip">
+      <div class="strip-item">
+        <strong>100%</strong>
+        <span>Open Source</span>
+      </div>
+      <div class="strip-item">
+        <strong>0</strong>
+        <span>Telemetry</span>
+      </div>
+      <div class="strip-item">
+        <strong>LGPL-3.0</strong>
+        <span>Licensed</span>
+      </div>
+      <div class="strip-item">
+        <strong>Forge</strong>
+        <span>Native</span>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2 class="section-title">Why FrostClient?</h2>
+      <p class="section-subtitle">Everything you'd expect from a premium client, without the price tag or the closed source.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🗂️</div>
+          <h3>Dark, Grid-Based Mod Menu</h3>
+          <p>Category tabs, live search, and per-module config panels keep every setting a click away.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎛️</div>
+          <h3>HUD Editor</h3>
+          <p>Drag-and-drop layout editor with shareable Base64 config strings — build your HUD and send it to friends.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚔️</div>
+          <h3>PvP &amp; Combat Tools</h3>
+          <p>CPS counter, combo counter, reach display, hitboxes, and more built for competitive play.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>FPS Optimizations</h3>
+          <p>Particle culling, HUD render caching, and reduced GC pressure keep frame times low.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Crash-Safe Architecture</h3>
+          <p>Soft <code>@Inject</code> Mixin hooks and per-module kill-switches for real compatibility with other Forge mods.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👁️</div>
+          <h3>Fully Inspectable</h3>
+          <p>No black boxes. Fork it, audit it, or contribute to it — the entire client is on GitHub.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="versions" id="versions">
+      <h2 class="section-title">Version Status</h2>
+      <p class="section-subtitle">FrostClient targets three Minecraft versions, at different stages of development.</p>
+
+      <div class="version-table">
+        <div class="version-row version-row-head">
+          <span>Version</span>
+          <span>Status</span>
+          <span>Notes</span>
+        </div>
+        <div class="version-row">
+          <span class="version-tag">1.8.9</span>
+          <span class="status status-active">Active — Playable</span>
+          <span>Published on <a href="https://modrinth.com/mod/frost" target="_blank" rel="noopener">Modrinth as "Frost"</a>. Actively developed and maintained.</span>
+        </div>
+        <div class="version-row">
+          <span class="version-tag">1.7.10</span>
+          <span class="status status-pending">Not Yet Ported</span>
+          <span>Still stock CloudClient source, not rebranded to FrostClient yet.</span>
+        </div>
+        <div class="version-row">
+          <span class="version-tag">1.12.2</span>
+          <span class="status status-pending">Not Yet Ported</span>
+          <span>Still stock CloudClient source, not rebranded to FrostClient yet.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="screenshots" id="screenshots">
+      <h2 class="section-title">See It In Action</h2>
+      <p class="section-subtitle">A look at the title screen, mod menu, and HUD editor.</p>
+
+      <div class="screenshot-grid">
+        <figure class="screenshot-card">
+          <img src="/screenshots/TitleScreen.png" alt="FrostClient title screen" loading="lazy">
+          <figcaption>Title Screen</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="/screenshots/ModMenu.png" alt="FrostClient mod menu" loading="lazy">
+          <figcaption>Mod Menu</figcaption>
+        </figure>
+        <figure class="screenshot-card">
+          <img src="/screenshots/HudEditor.png" alt="FrostClient HUD editor" loading="lazy">
+          <figcaption>HUD Editor</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to play open-source?</h2>
+      <p>Download FrostClient for 1.8.9 and drop it straight into your Forge mods folder.</p>
+      <div class="hero-actions">
+        <a href="https://modrinth.com/mod/frost" target="_blank" rel="noopener" class="btn btn-primary">Download on Modrinth</a>
+        <a href="https://github.com/QuiteFrosty/FrostClient" target="_blank" rel="noopener" class="btn btn-secondary">Contribute on GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="/screenshots/FrostLogoV2.png" alt="FrostClient logo">
+        <span>Frost<span class="accent">Client</span></span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/QuiteFrosty/FrostClient" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://modrinth.com/mod/frost" target="_blank" rel="noopener">Modrinth</a></li>
+        <li><a href="https://github.com/QuiteFrosty/FrostClient/blob/develop/ROADMAP.md" target="_blank" rel="noopener">Roadmap</a></li>
+        <li><a href="https://github.com/QuiteFrosty/FrostClient/blob/develop/LICENSE" target="_blank" rel="noopener">License</a></li>
+      </ul>
+      <p class="footer-note">FrostClient is a fork of <a href="https://github.com/cloudclientdev/cloudclient" target="_blank" rel="noopener">CloudClient</a>, licensed under LGPL-3.0. Not affiliated with Mojang or Microsoft.</p>
     </div>
-    
-    <div class="social-icons">
-      <a href="#" class="fa fa-facebook"></a>
-      <a href="#" class="fa fa-twitter"></a>
-      <a href="#" class="fa fa-instagram"></a>
-      <a href="#" class="fa fa-linkedin"></a>
-    </div>
-  </div>
-  
-  <div class="background-img"></div>
-  
-  <script>
-    // Calculate the remaining time until launch
-    var countDownDate = new Date("September 1, 2023 00:00:00").getTime();
-    
-    var countdownFunction = setInterval(function() {
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      
-      document.getElementById("days").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-      
-      if (distance < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("days").innerHTML = "0";
-        document.getElementById("hours").innerHTML = "0";
-        document.getElementById("minutes").innerHTML = "0";
-        document.getElementById("seconds").innerHTML = "0";
-      }
-    }, 1000);
-    
-    // Create snowflakes dynamically
-    function createSnowflakes() {
-      const container = document.querySelector(".background-img");
-      const numSnowflakes = 50;
-      
-      for (let i = 0; i < numSnowflakes; i++) {
-        const snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        snowflake.style.left = Math.random() * window.innerWidth + "px";
-        snowflake.style.animationDuration = (Math.random() * 5 + 5) + "s";
-        container.appendChild(snowflake);
-      }
-    }
-    
-    createSnowflakes();
-  </script>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
