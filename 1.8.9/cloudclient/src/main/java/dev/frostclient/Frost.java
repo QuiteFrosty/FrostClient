@@ -66,6 +66,7 @@ public class Frost {
         );
 
         try {
+            ConfigSaver.migrateLegacyConfig();
             if (!ConfigSaver.configExists()) {
                 ConfigSaver.saveConfig();
             }

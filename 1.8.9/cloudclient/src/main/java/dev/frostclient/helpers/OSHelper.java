@@ -30,4 +30,14 @@ public class OSHelper {
     public static String getFrostDirectory() {
         return getMinecraftDirectory() + "frostclient" + File.separator;
     }
+
+    /**
+     * Returns the location of the legacy pre-rebrand ".minecraft/cloud" config directory
+     *
+     * @return Directory
+     */
+
+    public static String getLegacyCloudDirectory() {
+        return getMinecraftDirectory() + "cloud" + File.separator;
+    }
 }

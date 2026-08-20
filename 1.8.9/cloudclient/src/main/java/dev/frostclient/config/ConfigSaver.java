@@ -16,8 +16,34 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public class ConfigSaver {
+
+    /**
+     * Copies a config.json left behind by the pre-rebrand ".minecraft/cloud"
+     * directory into the new ".minecraft/frostclient" location, so upgrading
+     * users don't lose their settings. No-op if there's nothing to migrate
+     * or a frostclient config already exists.
+     */
+
+    public static void migrateLegacyConfig() {
+        if (configExists()) {
+            return;
+        }
+
+        File legacyFile = new File(OSHelper.getLegacyCloudDirectory() + "config.json");
+        if (!legacyFile.exists()) {
+            return;
+        }
+
+        try {
+            createDir();
+            Files.copy(legacyFile.toPath(), new File(OSHelper.getFrostDirectory() + "config.json").toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     /**
      * Creates and saves a configuration in .minecraft/frostclient/config.json
