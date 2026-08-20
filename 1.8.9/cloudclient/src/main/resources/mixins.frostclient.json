@@ -1,0 +1,24 @@
+{
+  "required": true,
+  "package": "dev.frostclient.mixins",
+  "refmap": "mixins.frostclient.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "EntityRendererMixin",
+    "FontRendererMixin",
+    "GuiIngameMenuMixin",
+    "GuiInGameMixin",
+    "GuiMainMenuMixin",
+    "GuiScreenMixin",
+    "ItemRendererMixin",
+    "MinecraftMixin",
+    "ModelBipedMixin",
+    "RendererLivingEntityMixin",
+    "RenderMixin"
+  ],
+  "mixins": [
+    "GuiUtilsMixin",
+    "InventoryPlayerMixin",
+    "WorldMixin"
+  ]
+}
