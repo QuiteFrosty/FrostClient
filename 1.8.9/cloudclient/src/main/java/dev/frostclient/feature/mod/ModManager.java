@@ -58,6 +58,8 @@ public class ModManager {
         addMod(new TimeChangerMod());
         addMod(new NameTagMod());
         addMod(new ParticleCullingMod());
+        addMod(new AutoGGMod());
+        addMod(new ScreenshotMod());
     }
 
     /**
