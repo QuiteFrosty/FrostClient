@@ -1,0 +1,39 @@
+name: Build FrostClient
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ["1.7.10", "1.8.9", "1.12.2"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          java-version: "8"
+          distribution: "temurin"
+
+      - name: Grant execute permission for Gradle
+        run: chmod +x ${{ matrix.version }}/cloudclient/gradlew
+
+      - name: Build with Gradle
+        working-directory: ${{ matrix.version }}/cloudclient
+        run: ./gradlew build --no-daemon
+
+      - name: Upload compiled jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: FrostClient-${{ matrix.version }}
+          path: ${{ matrix.version }}/cloudclient/build/libs/*.jar
+          if-no-files-found: error
