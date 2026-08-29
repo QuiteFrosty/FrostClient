@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.renderer.vertex.VertexFormat;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
@@ -21,6 +22,43 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 
 public class Helper3D {
+
+    /**
+     * Checks whether a world position falls outside the player's field of view, so
+     * callers can skip rendering things the camera can't actually see. Anything
+     * within 2 blocks of the eye is always considered visible, since the angle test
+     * becomes unstable at very short range.
+     *
+     * @param x World-space X of the point being tested
+     * @param y World-space Y of the point being tested
+     * @param z World-space Z of the point being tested
+     * @param maxAngle Half-angle, in degrees, of the cone considered "in view"
+     * @return True if the point lies outside the view cone and can be culled
+     */
+
+    public static boolean isOutsideView(double x, double y, double z, float maxAngle) {
+        EntityPlayer player = Frost.INSTANCE.mc.thePlayer;
+        if (player == null) {
+            return false;
+        }
+
+        Vec3 eyePos = player.getPositionEyes(1.0F);
+        double dx = x - eyePos.xCoord;
+        double dy = y - eyePos.yCoord;
+        double dz = z - eyePos.zCoord;
+
+        if (dx * dx + dy * dy + dz * dz < 4.0D) {
+            return false;
+        }
+
+        Vec3 toPoint = new Vec3(dx, dy, dz).normalize();
+        Vec3 look = player.getLook(1.0F);
+
+        double dot = MathHelper.clamp_double(toPoint.dotProduct(look), -1.0D, 1.0D);
+        double angle = Math.toDegrees(Math.acos(dot));
+
+        return angle > maxAngle;
+    }
 
     /**
      * Draws a filled box over a given Axis Aligned Bounding Box in the world

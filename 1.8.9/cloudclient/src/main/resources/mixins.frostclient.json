@@ -4,6 +4,7 @@
   "refmap": "mixins.frostclient.refmap.json",
   "compatibilityLevel": "JAVA_8",
   "client": [
+    "EntityFXMixin",
     "EntityRendererMixin",
     "FontRendererMixin",
     "GuiIngameMenuMixin",

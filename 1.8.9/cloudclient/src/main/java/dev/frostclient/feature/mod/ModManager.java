@@ -57,6 +57,7 @@ public class ModManager {
         addMod(new HitColorMod());
         addMod(new TimeChangerMod());
         addMod(new NameTagMod());
+        addMod(new ParticleCullingMod());
     }
 
     /**
